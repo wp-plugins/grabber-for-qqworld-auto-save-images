@@ -12,7 +12,7 @@ Additional grabber for QQWrorld Auto Save Images. QQWorld自动保存图片的�
 
 == Description ==
 
-Additional grabber for <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWrorld Auto Save Images</a>. QQWorld自动保存图片的额外抓取工具。
+Additional grabber for <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWrorld Auto Save Images</a>.<br /><a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a>的额外抓取工具。
 
 == Installation ==
 
