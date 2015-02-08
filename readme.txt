@@ -12,15 +12,23 @@ Additional grabber for QQWrorld Auto Save Images. QQWorld自动保存图片的�
 
 == Description ==
 
-Additional grabber for <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWrorld Auto Save Images</a>, It can grab pdf for now. for example:
+Additional grabber for <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWrorld-Auto-Save-Images</a>, It can grab pdf for now.
+
+for example:
 
 &lt;a href="http://example.com/example.pdf" title="pdf"&gt;Example PDF&lt;/a&gt;
+
+Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a>, Support <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a> 1.7.12.11 or higher version.
 
 ////////////////////////////////////////////////////
 
 <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a>的额外抓取工具，目前可以抓取PDF。
 
+示例：
+
 &lt;a href="http://example.com/example.pdf" title="pdf"&gt;示例PDF&lt;/a&gt;
+
+提示：这是<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a>的插件，支持<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a> 1.7.12.11 或更高版本。
 
 == Installation ==
 
