@@ -3,7 +3,7 @@
 Plugin Name: Grabber for QQWorld Auto Save Images
 Plugin URI: https://wordpress.org/plugins/grabber-4-qasi/
 Description: Additional grabber for QQWrorld Auto Save Images.
-Version: 1.0
+Version: 1.0.1
 Author: Michael Wang
 Author URI: http://www.qqworld.org
 Text Domain: grabber_4_qasi
@@ -13,8 +13,10 @@ define('GRABBER_FOR_QQWORLD_AUTO_SAVE_IMAGES_URL', plugin_dir_url(__FILE__));
 
 class Grabber_for_QQWorld_auto_save_images {
 	var $text_domain = 'grabber_4_qasi';
+	var $exclude_domain;
 	var $grab_pdf;
 	public function __construct() {
+		$this->exclude_domain = get_option('qqworld-auto-save-images-exclude-domain');
 		$grabber = get_option( 'qqworld-auto-save-images-grabber' );
 		$this->grab_pdf = isset($grabber['pdf']) ? $grabber['pdf'] : 'yes';
 		add_action( 'plugins_loaded', array($this, 'load_language') );
@@ -46,14 +48,23 @@ class Grabber_for_QQWorld_auto_save_images {
 		__( 'Additional grabber for QQWrorld Auto Save Images.', $this->text_domain );
 	}
 
-	public function get_filename($url, $type) {
-		$url = explode('/', $url);
-		$filename = $url[count($url)-1];
-		if (strstr($filename, '.') > -1) {
-			$filename = explode('.', $filename);
-			$filename = $filename[count($filename)-1] . '.' . $type;
-		} else {
-			$filename = md5($filename) . '.' . $type;
+	public function get_filename($http_response_header, $url, $type) {
+		$filename = '';
+		foreach ($http_response_header as $header) {
+			if ( preg_match('/content-disposition: filename=/i', $header, $matches) ) {
+				$filename = str_replace('content-disposition: filename=', '', $header);
+				break;
+			}
+		}
+		if (empty($filename)) {
+			$url = explode('/', $url);
+			$filename = $url[count($url)-1];
+			if (strstr($filename, '.') > -1) {
+				$filename = explode('.', $filename);
+				$filename = $filename[count($filename)-1] . '.' . $type;
+			} else {
+				$filename = md5($filename) . '.' . $type;
+			}
 		}
 		return $filename;
 	}
@@ -67,7 +78,7 @@ class Grabber_for_QQWorld_auto_save_images {
 			foreach ($http_response_header as $header) {
 				if ( preg_match('/Content-Type: application\/pdf/i', $header, $matches) ) {
 					$is_pdf = true;
-					$filename = $this->get_filename($url, 'pdf');
+					$filename = $this->get_filename($http_response_header, $url, 'pdf');
 				}
 			}
 		}
@@ -78,9 +89,20 @@ class Grabber_for_QQWorld_auto_save_images {
 		set_time_limit(0);
 		if ( preg_match_all('/<a[^>]*href=\"(.*?)\".*?>/i', $content, $matches) ) {
 			foreach ($matches[1] as $match) {
-				$file = $this->download($match);
-				if ( !empty($file) && $res = $this->save($file['filename'], $file['file'], $post_id) ) {
-					$content = $this->format($match, $res, $content);
+				$allow = true;
+
+				if (!empty($this->exclude_domain)) foreach ($this->exclude_domain as $domain) {
+					$pos = strpos($match, $domain);
+					if($pos) $allow=false;
+				}
+				if ($allow) {
+					$pos = strpos($match, get_bloginfo('url'));
+					if($pos===false){
+						$file = $this->download($match);
+						if ( !empty($file) && $res = $this->save($file['filename'], $file['file'], $post_id) ) {
+							$content = $this->format($match, $res, $content);
+						}
+					}
 				}
 			}
 		}
@@ -156,3 +178,4 @@ class Grabber_for_QQWorld_auto_save_images {
 	}
 }
 new Grabber_for_QQWorld_auto_save_images;
+

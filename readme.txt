@@ -4,7 +4,7 @@ Donate link:
 Tags: auto, save, local, fetch, pdf
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ for example:
 
 &lt;a href="http://example.com/example.pdf" title="pdf"&gt;Example PDF&lt;/a&gt;
 
-Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a>, Support <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a> 1.7.12.11 or higher version.
+Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a>, Need <a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld-Auto-Save-Images</a> 1.7.12.11 or higher version.
 
 ////////////////////////////////////////////////////
 
@@ -28,7 +28,7 @@ Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-s
 
 &lt;a href="http://example.com/example.pdf" title="pdf"&gt;示例PDF&lt;/a&gt;
 
-提示：这是<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a>的插件，支持<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a> 1.7.12.11 或更高版本。
+提示：这是<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a>的插件，需要<a href="https://wordpress.org/plugins/qqworld-auto-save-images/" target="_blank">QQWorld自动保存图片</a> 1.7.12.11 或更高版本。
 
 == Installation ==
 
@@ -43,6 +43,12 @@ Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-s
 2. 用户界面 - 设置
 
 == Changelog ==
+
+= 1.0.1 =
+New feature<br />
+Detect pdf original filename from dynamic links.<br />
+新特性<br />
+从动态链接中探测原pdf文件名。
 
 = 1.0 =
 New feature<br />
