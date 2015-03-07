@@ -1,5 +1,5 @@
 === Grabber for QQWorld Auto Save Images ===
-Contributors:
+Contributors: qqworld
 Donate link:
 Tags: auto, save, local, fetch, pdf
 Requires at least: 3.5
