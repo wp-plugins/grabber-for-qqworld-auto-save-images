@@ -3,8 +3,8 @@ Contributors: qqworld
 Donate link:
 Tags: auto, save, local, fetch, pdf
 Requires at least: 3.5
-Tested up to: 4.1
-Stable tag: 1.0.1
+Tested up to: 4.1.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,12 @@ Notice: This's a plugin of <a href="https://wordpress.org/plugins/qqworld-auto-s
 2. 用户界面 - 设置
 
 == Changelog ==
+
+= 1.0.2 =
+Bug Fixed<br />
+Missing file cause ajax error of Manual Mode.<br />
+修复Bug<br />
+丢失的文件导致手动模式ajax错误。
 
 = 1.0.1 =
 New feature<br />

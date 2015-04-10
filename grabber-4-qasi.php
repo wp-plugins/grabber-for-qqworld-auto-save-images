@@ -3,7 +3,7 @@
 Plugin Name: Grabber for QQWorld Auto Save Images
 Plugin URI: https://wordpress.org/plugins/grabber-4-qasi/
 Description: Additional grabber for QQWrorld Auto Save Images.
-Version: 1.0.1
+Version: 1.0.2
 Author: Michael Wang
 Author URI: http://www.qqworld.org
 Text Domain: grabber_4_qasi
@@ -75,7 +75,7 @@ class Grabber_for_QQWorld_auto_save_images {
 		if (function_exists('file_get_contents')) {
 			$file = @file_get_contents($url);
 			$is_pdf = false;
-			foreach ($http_response_header as $header) {
+			if (!empty($http_response_header)) foreach ($http_response_header as $header) {
 				if ( preg_match('/Content-Type: application\/pdf/i', $header, $matches) ) {
 					$is_pdf = true;
 					$filename = $this->get_filename($http_response_header, $url, 'pdf');
